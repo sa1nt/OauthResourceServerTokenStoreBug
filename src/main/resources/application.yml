@@ -1,13 +1,18 @@
 security:
     oauth2:
+        # In case when we're building a pure Oauth2 Resource Server
+        #   the block below results in NoUniqueBeanDefinitionException blaming
+        #   expected single matching bean but found 2: remoteTokenServices,tokenServices
+#        client:
+#            client-id: wallet
+#            client-secret: turbosecret
+
         resource:
             id: wallet
-            token-info-uri: http://example.com/pizda/noga
+            # If the client.client-id & client.client-secret are provided (above) then absence of this
+            #   value results in BindException with "Missing tokenInfoUri and userInfoUri and there is
+            #   no JWT verifier key"
+#            token-info-uri: http://example.com/pizda/noga
 
-        # the block below results in NoUniqueBeanDefinitionException blaming
-        #   expected single matching bean but found 2: remoteTokenServices,tokenServices
-        client:
-            client-id: wallet
-            client-secret: turbosecret
     user:
         password: password
