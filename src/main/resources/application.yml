@@ -1,0 +1,13 @@
+security:
+    oauth2:
+        resource:
+            id: wallet
+            token-info-uri: http://example.com/pizda/noga
+
+        # the block below results in NoUniqueBeanDefinitionException blaming
+        #   expected single matching bean but found 2: remoteTokenServices,tokenServices
+        client:
+            client-id: wallet
+            client-secret: turbosecret
+    user:
+        password: password
